@@ -1,0 +1,22 @@
+/* Styles */
+
+::selection {
+	background: #ff4500;
+	color: #fff;
+}
+
+body {
+	background: #fff;
+	color: #111;
+	font: italic 12px / 1.5 "Helvetica Neue", Arial, sans-serif;
+	text-transform: uppercase;
+}
+
+h1 {
+	display: inline-block;
+	font-weight: 100;
+	margin: 0 0 1em;
+	opacity: 0;
+	transform-origin: 0 25.5%;
+	transition: opacity 0.3s ease-in;
+}
