@@ -1,0 +1,52 @@
+/* Styles */
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+
+::selection {
+	background: #FFF;
+	color: #FFF;
+}
+
+body {
+	background: #F7AFB0;
+	color: #FFF;
+	font: 400 14px / 1.5 "Lato", Arial, sans-serif;
+}
+
+section {
+	background: #EE561D;
+	display: inline-block;
+	margin: 20px;
+	opacity: 0;
+	padding: 100px;
+	padding: 140px 100px;
+	text-align: center;
+	transition: opacity 0.2s ease;
+}
+
+h1 {
+	font-size: 60px;
+	font-weight: 300;
+	letter-spacing: 2px;
+	/*margin-bottom: 40px;*/
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 14px;
+	font-weight: normal;
+}
+
+span {
+	margin: 0 20px;
+}
+
+a {
+	color: #111;
+	text-decoration: none;
+}
+
+a:hover {
+	border-bottom: 1px solid #111;
+	color: #111;
+}
