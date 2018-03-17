@@ -8,13 +8,13 @@
 }
 
 body {
-	background: #F7AFB0;
+	background: #637e8f;
 	color: #FFF;
 	font: 400 14px / 1.5 "Lato", Arial, sans-serif;
 }
 
 section {
-	background: #EE561D;
+	background: #fecacc;
 	display: inline-block;
 	margin: 20px;
 	opacity: 0;
@@ -25,11 +25,35 @@ section {
 }
 
 h1 {
+	/*border-bottom: 1px solid #FFF;*/
 	font-size: 60px;
 	font-weight: 300;
 	letter-spacing: 2px;
+	line-height: 1.2;
 	/*margin-bottom: 40px;*/
+	/*opacity: 0.8;*/
 	text-transform: uppercase;
+	/*transition: opacity 0.2s ease;*/
+}
+
+section:hover h1 {
+	opacity: 1;
+}
+
+h1::after {
+	background: #FFF;
+	content: "";
+	display: block;
+	height: 3px;
+	margin: auto;
+	opacity: 0;
+	transition: all 0.15s ease;
+	width: 40%;
+}
+
+section:hover h1::after {
+	opacity: 1;
+	width: 96.5%;
 }
 
 h2 {
