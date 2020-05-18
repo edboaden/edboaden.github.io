@@ -48,8 +48,8 @@ a::after {
 	display: block;
 	opacity: 0;
 	position: absolute;
-	top: 0;
-	bottom: 0;
+	top: 0.167em;
+	bottom: 0.167em;
 	left: 0;
 	transition: 0.1s all ease-out;
 	width: 0;
@@ -134,5 +134,19 @@ section {
 }
 
 .highlight {
-	background-color: #FFD4D4;
+	/*background-color: #FFD4D4;*/
+	position: relative;
+}
+
+.highlight::after {
+	/*background-color: #FFD4D4;*/
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0.25em;
+	right: 0.1em;
+	bottom: 0.25em;
+	left: 0.1em;
+	z-index: -1;
+}
 }
