@@ -129,8 +129,8 @@ section {
 }
 
 .inline-list li:not(:last-child)::after {
-	content: ".";
-	margin: 0 1em;
+	content: "\00B7";
+	margin: 0 0.5em;
 }
 
 .highlight {
@@ -148,5 +148,4 @@ section {
 	bottom: 0.25em;
 	left: 0.1em;
 	z-index: -1;
-}
 }
