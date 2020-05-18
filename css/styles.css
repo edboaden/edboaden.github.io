@@ -42,8 +42,9 @@ a {
 	position: relative;
 }
 
+a::before,
 a::after {
-	background-color: #FFD4D4;
+	background: #FFD4D4;
 	content: "";
 	display: block;
 	opacity: 0;
@@ -51,11 +52,16 @@ a::after {
 	top: 0.167em;
 	bottom: 0.167em;
 	left: 0;
-	transition: 0.1s all ease-out;
+	transition: 0.1s opacity ease-out, 0.2s width ease-out;
 	width: 0;
 	z-index: -1;
 }
 
+a::before {
+	background: #FFE9E7;
+}
+
+a::before,
 a:hover::after {
 	opacity: 1;
 	width: 100%;
