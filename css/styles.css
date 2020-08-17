@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Montserrat:wght@300;400&display=swap');
 
+:root {
+	--background: #FFF6F3;
+	--text: #111122;
+	--highlight: #FFD4D4;
+	--highlight2: #FFE9E7;
+}
+
+.dark-mode {
+	--background: #1C2433;
+	--text: #fff;
+	--highlight: #428581;
+	--highlight2: #2C5654;
+}
+
 html {
 	font: 16px / 1.5 "Karla", sans-serif;
 	margin: 0;
@@ -13,12 +27,12 @@ html {
 }
 
 ::selection {
-	background-color: #FFD4D4;
+	background-color: var(--highlight);
 }
 
 body {
-	background-color: #FFF6F3;
-	color: #111122;
+	background-color: var(--background);
+	color: var(--text);
 	margin: 0;
 	opacity: 0;
 	padding: 1rem;
@@ -50,7 +64,7 @@ a {
 
 a::before,
 a::after {
-	background: #FFD4D4;
+	background: var(--highlight);
 	content: "";
 	display: block;
 	opacity: 0;
@@ -64,7 +78,7 @@ a::after {
 }
 
 a::before {
-	background: #FFE9E7;
+	background: var(--highlight2);
 }
 
 a::before,
@@ -163,12 +177,12 @@ section {
 }
 
 .highlight {
-	/*background-color: #FFD4D4;*/
+	/*background-color: var(--highlight);*/
 	position: relative;
 }
 
 .highlight::after {
-	/*background-color: #FFD4D4;*/
+	/*background-color: var(--highlight);*/
 	content: "";
 	display: block;
 	position: absolute;
