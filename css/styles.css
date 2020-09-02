@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Montserrat:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;&family=Montserrat:wght@400;600&display=swap');
 
 :root {
 	--background: #FFF6F3;
 	--text: #111122;
-	--highlight: #FFD4D4;
-	--highlight2: #FFE9E7;
+	--highlight: #FFE9E7;
+	--highlight2: #FFD4D4;
 }
 
 .dark-mode {
@@ -14,17 +14,24 @@
 	--highlight2: #2C5654;
 }
 
+.blue {
+	--background: #3B5496;
+	--text: #fff;
+	--highlight: rgba(0,0,0,0.3);
+	--highlight2: rgba(0,0,0,0.7);
+}
+
 html {
-	font: 16px / 1.5 "Karla", sans-serif;
+	font: 300 16px / 1.5 "Merriweather", sans-serif;
 	margin: 0;
 	padding: 0;
 }
 
-@media screen and (min-width: 800px) {
+/*@media screen and (min-width: 800px) {
 	html {
-		font-size: 18px;
+		font-size: 24px;
 	}
-}
+}*/
 
 ::selection {
 	background-color: var(--highlight);
@@ -35,7 +42,7 @@ body {
 	color: var(--text);
 	margin: 0;
 	opacity: 0;
-	padding: 1rem;
+	padding: 0 2rem;
 	transform: translateY(0.5rem);
 	transition: 0.3s all ease-out;
 }
@@ -77,7 +84,7 @@ a::after {
 	z-index: -1;
 }
 
-a::before {
+a::after {
 	background: var(--highlight2);
 }
 
@@ -87,37 +94,39 @@ a:hover::after {
 	width: 100%;
 }
 
-h1, h3 {
+h1, h2 {
 	font-family: "Montserrat", sans-serif;
-	font-weight: 400;
-}
-
-h1 {
-	font-size: 2.25rem;
-	font-weight: 300;
+	font-size: 1.95rem;
+	/*font-size: 2.5rem;*/
+	font-weight: 600;
 	line-height: 1.2;
-	margin: 2rem 0;
+	margin: 3rem 0;
 }
 
 @media screen and (min-width: 800px) {
 	h1 {
-		font-size: 3.375rem;
-		margin: 4rem 0;
+		font-size: 3rem;
 	}
 }
 
+.sub-title {
+	font-weight: 400;
+}
+
 h2 {
-	font-size: 1rem;
+	font-size: 1.25rem;
 	margin: 2rem 0;
 }
 
 h3 {
-	font-size: 1.5rem;
+	font-size: 1rem;
+	font-weight: 700;
 	margin: 1rem 0;
 }
 
 h4 {
 	font-size: 1rem;
+	font-weight: 700;
 	margin: 0.5rem 0;
 }
 
@@ -126,19 +135,29 @@ h4::after {
 }
 
 p {
-	margin: 0.5rem 0;
+	margin: 0.5em 0;
 	max-width: 40em;
 }
 
 ul {
-	list-style-type: square;
+	/*list-style-type: square;*/
 	list-style-position: inside;
 	margin: 0;
 	padding: 0;
 }
 
 section {
-	margin: 4rem 0;
+	margin: 3rem 0;
+}
+
+.profile-picture {
+	width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+	.large-text {
+		font-size: 1.25rem;
+	}
 }
 
 .project-list li {
