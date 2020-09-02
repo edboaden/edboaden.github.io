@@ -39,6 +39,8 @@ html {
 
 body {
 	background-color: var(--background);
+	background: url("../img/bg.jpg") center;
+	background-size: cover; 
 	color: var(--text);
 	margin: 0;
 	opacity: 0;
