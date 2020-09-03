@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;&family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600&display=swap');
 
 :root {
 	--background: #FFF6F3;
@@ -9,16 +9,23 @@
 
 .dark-mode {
 	--background: #1C2433;
-	--text: #fff;
+	--text: #FFFFFF;
 	--highlight: #428581;
 	--highlight2: #2C5654;
 }
 
 .blue {
 	--background: #3B5496;
-	--text: #fff;
-	--highlight: rgba(0,0,0,0.3);
-	--highlight2: rgba(0,0,0,0.7);
+	--text: #FFFFFF;
+	--highlight: #F0B3D3;
+	--selection: #243A75;
+}
+
+.colourful {
+	--background: #FFF6F3 url("../img/bg.jpg") center bottom fixed;
+	--text: #000000;
+	--highlight: #FFFFFF;
+	--selection: #FFFFFF;
 }
 
 html {
@@ -34,11 +41,12 @@ html {
 }*/
 
 ::selection {
-	background-color: var(--highlight);
+	background-color: var(--selection);
 }
 
 body {
-	background-color: var(--background);
+	background: var(--background);
+	background-size: cover; 
 	color: var(--text);
 	margin: 0;
 	opacity: 0;
@@ -65,11 +73,20 @@ body.loaded {
 }
 
 a {
+	border-radius: 1px;
 	color: inherit;
+	font-style: italic;
 	position: relative;
+	text-decoration-color: var(--highlight);
+	transition: 0.2s all ease-in-out;
 }
 
-a::before,
+a:hover {
+	/*color: var(--highlight);*/
+	background: var(--selection);
+}
+
+/*a::before,
 a::after {
 	background: var(--highlight);
 	content: "";
@@ -93,11 +110,14 @@ a:hover::after {
 	opacity: 1;
 	width: 100%;
 }
-
-h1, h2 {
+*/
+h1,
+h2 {
 	font-family: "Montserrat", sans-serif;
+}
+
+h1 {
 	font-size: 1.95rem;
-	/*font-size: 2.5rem;*/
 	font-weight: 600;
 	line-height: 1.2;
 	margin: 3rem 0;
@@ -106,6 +126,7 @@ h1, h2 {
 @media screen and (min-width: 800px) {
 	h1 {
 		font-size: 3rem;
+		margin: 6rem 0;
 	}
 }
 
