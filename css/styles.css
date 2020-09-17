@@ -36,16 +36,16 @@ body {
 	background-size: cover; 
 	color: var(--text);
 	margin: 0;
-	opacity: 0;
-	padding: 0 2rem;
-	transform: translateY(0.5rem);
-	transition: 0.3s all ease-out;
+	/*opacity: 0;*/
+	padding: 0 3rem;
+	/*transform: translateY(0.5rem);*/
+	/*transition: 0.3s all ease-out;*/
 }
 
-body.loaded {
+/*body.loaded {
 	opacity: 1;
 	transform: translateY(0);
-}
+}*/
 
 @media screen and (min-width: 800px) {
 	body {
