@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,700&display=swap');
 
 :root {
-	--background: #FFF6F3;
+	--background: #fff1ed;
 	--text: #111122;
-	--highlight: #FFD4D4;
 	--selection: #FFE9E7;
-}
-
-.dark-mode {
-	--background: #1C2433;
-	--text: #FFFFFF;
-	--highlight: #428581;
-	--selection: #2C5654;
+	--link: #111122;
+	--link-decoration: #111122;
+	--link-hover: #FFD4D4;
+	--link-hover-decoration: #111122;
 }
 
 .blue {
 	--background: #3B5496;
 	--text: #FFFFFF;
-	--highlight: #F0B3D3;
 	--selection: #F0B3D399;
+	--link: #FFFFFF;
+	--link-decoration: #F0B3D3;
+	--link-hover: #00000000;
+	--link-hover-decoration: #FFFFFF;
 }
 
 html {
@@ -65,12 +64,13 @@ a {
 	font-style: italic;
 	font-weight: bold;
 	position: relative;
-	text-decoration-color: var(--highlight);
+	text-decoration-color: var(--link-decoration);
 	transition: 0.2s all ease-in-out;
 }
 
 a:hover {
-	background: var(--highlight);
+	background: var(--link-hover);
+	text-decoration-color: var(--link-hover-decoration);
 }
 
 h1 {
@@ -87,7 +87,12 @@ h1 {
 	}
 }
 
+.title {
+	/*background: var(--link-hover);*/
+}
+
 .sub-title {
+	/*background: var(--link-hover);*/
 	font-weight: 300;
 }
 
