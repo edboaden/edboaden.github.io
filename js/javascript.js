@@ -1,10 +1,7 @@
 /* Javascript */
 
 // On Window Load
-$(window).on('load', function() {
-	show_body();
-});
-
-function show_body() {
-	$('body').addClass('loaded');
-}
+// add loaded class
+window.onload = function() {
+  document.getElementsByTagName('body')[0].className = 'loaded';
+};
