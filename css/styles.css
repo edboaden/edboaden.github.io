@@ -24,6 +24,7 @@ html {
 	font: 300 16px / 1.5 "Merriweather", sans-serif;
 	margin: 0;
 	padding: 0;
+	min-width: 300px;
 }
 
 ::selection {
@@ -202,31 +203,20 @@ section {
 
 .illustration {
 	background: #F7E3DC;
-	
-	/* Auto Layout */
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-
+	padding: 0 3rem;
 	padding-bottom: 2rem;
 }
 
 .illustration .col {
-	/* Auto Layout */
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	
-	padding: 3rem 0 0 1rem;
-	position: static;
-	width: 260px;
-	
-	/* Inside Auto Layout */
-	flex: none;
-	order: 3;
-	align-self: flex-start;
-	flex-grow: 0;
-	margin: 1rem 0;
+	float: left;
+	width: 48%;
+	padding: 0 1%;
+}
+
+@media screen and (min-width: 800px) {
+	.illustration .col {
+		width: 23%;
+	}
 }
 
 .illustration .col > * {
