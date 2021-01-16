@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,700&display=swap');
 
 :root {
-	--background: #fff1ed;
+	--background: #FFF1ED;
 	--text: #111122;
+	--white: #FFFFFF;
 	--selection: #FFE9E7;
 	--link: #111122;
 	--link-decoration: #111122;
@@ -12,6 +13,7 @@
 	--pink: #F0B3D3;
 	--background-opacity: rgba(40, 14, 8, 0.1);
 	--inset-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+	--light-line: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 html {
@@ -233,7 +235,7 @@ section {
 }
 
 .ui-rectangle-corner {
-	background: #FFFFFF;
+	background: var(--white);
 	border: 1px solid #2F42EF;
 	height: 8px;
 	width: 8px;
@@ -325,7 +327,7 @@ section {
 }
 
 .ui-button::after {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: var(--light-line);
 	border-radius: 1px;
 	content: "";
 	display: block;
@@ -343,30 +345,61 @@ section {
 }
 
 .ui-button-active {
-	background: #FFFFFF;
+	background: var(--white);
 	box-shadow: var(--box-shadow);
 }
 
-.ui-success-message {
-	background: #FFFFFF;
+.ui-message {
 	border-radius: 3px;
 	box-shadow: var(--box-shadow);
-	padding: 1.5rem 0;
+	height: 4.5rem;
 	width: 100%;
 }
 
-.ui-success-message::after {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+.ui-message::after {
+	border: var(--light-line);
 	border-radius: 1px;
 	content: "";
-	display: block;
-	margin: auto;
+	display: inline-block;
 	height: 1.5rem;
-	width: 50%;
+	margin: calc(1.5rem - 2px) 1.5rem;
+	margin-left: 0;
+	width: calc(100% - 1.5rem - 4.5rem - 2px);
+	vertical-align: middle;
 }
 
-.ui-success-message-pink {
+.ui-message::before {
+	background-size: cover;
+	content: "";
+	display: inline-block;
+	height: 1.5rem;
+	margin: 1.5rem;
+	width: 1.5rem;
+	vertical-align: middle;
+}
+
+.ui-success-message {
+	background: var(--white);
+}
+
+.ui-success-message::before {
+	background-image: url(../img/material-design-icons/check-24px.svg);
+	height: 2rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	width: 2rem;
+}
+
+.ui-success-message::after {
+	width: calc(100% - 2rem - 4.5rem - 2px);
+}
+
+.ui-favorite-message {
 	background: var(--pink);
+}
+
+.ui-favorite-message::before {
+	background-image: url(../img/material-design-icons/favorite-24px.svg);
 }
 
 .ui-dropdown {
@@ -377,22 +410,33 @@ section {
 	border: 1px solid var(--text);
 	border-radius: 3px;
 	margin-bottom: 1rem;
-	padding: 1.5rem 0;
-	width: 100%;
+}
+
+.ui-dropdown-toggle::before {
+	border: var(--light-line);
+	border-radius: 1px;
+	content: "";
+	display: inline-block;
+	height: 1.5rem;
+	margin: calc(1.5rem - 2px) 1.5rem;
+	margin-right: 0;
+	vertical-align: middle;
+	width: calc(100% - 2rem - 4.5rem - 2px);
 }
 
 .ui-dropdown-toggle::after {
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 1px;
+	background-image: url(../img/material-design-icons/unfold_more-24px.svg);
+	background-size: cover;
 	content: "";
-	display: block;
-	margin: auto;
-	height: 1.5rem;
-	width: 50%;
+	display: inline-block;
+	height: 2rem;
+	margin: 1.25rem 1.5rem;
+	vertical-align: middle;
+	width: 2rem;
 }
 
 .ui-dropdown-list {
-	background: #FFFFFF;
+	background: var(--white);
 	border-radius: 3px;
 	box-shadow: var(--box-shadow);
 	width: 100%;
@@ -407,13 +451,14 @@ section {
 }
 
 .ui-dropdown-list-item::after {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: var(--light-line);
 	border-radius: 1px;
 	content: "";
 	display: block;
-	margin: auto;
+	margin-left: 1.5rem;
 	height: 1.5rem;
-	width: 50%;
+	width: calc(100% - 3rem - 2px);
+	width: calc(100% - 2rem - 4.5rem - 2px);
 }
 
 .ui-slider {
@@ -439,7 +484,7 @@ section {
 	height: 0.5rem;
 	position: absolute;
 	top: 0.5rem;
-	right: 40%;
+	right: calc(100% - 70%);
 	bottom: 0;
 	left: 0;
 }
@@ -452,7 +497,7 @@ section {
 	width: 1.5rem;
 	position: absolute;
 	top: 0;
-	left: calc(60% - 1.5rem);
+	left: calc(70% - 1.5rem);
 }
 
 .ui-radio-set {
@@ -505,7 +550,7 @@ section {
 }
 
 .ui-radio-label {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: var(--light-line);
 	border-radius: 1px;
 	display: inline-block;
 	margin-top: 0.25rem;
