@@ -28,3 +28,19 @@ window.onload = function() {
 		}
 	}
 }
+
+// Fill progress bars on scroll
+// function fillProgress(element, scroll) {
+
+// 	let progressBar = document.querySelectorAll('.ui-progress')
+
+// 	for (let i = 0; i < progressBar.length; i ++) {
+// 		let initialProgress = getComputedStyle(progressBar[i]).width;
+
+// 		if (isDesktop.matches) {
+// 			document.onscroll = function() {
+// 				progressBar[i].style.width = 'calc(' + initialProgress + ' + ' + scroll + '%)';
+// 			}
+// 		}
+// 	}
+// }
