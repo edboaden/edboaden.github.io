@@ -17,6 +17,15 @@
 	--light-line: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+@media (prefers-color-scheme: dark) {
+	/*body {
+		--background: #3a3837;
+		--background-medium-dark: #232222;
+		--background-dark: #111;
+		--text: #FFF;
+	}*/
+}
+
 html {
 	font: 300 16px / 1.5 "Merriweather", sans-serif;
 	margin: 0;
