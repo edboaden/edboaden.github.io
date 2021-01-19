@@ -245,6 +245,11 @@ section {
 	position: relative;
 }
 
+.col-wrapper {
+	margin: auto;
+	max-width: 1400px;
+}
+
 .col-2 .ui-rectangle {
 	height: 8rem;
 }
