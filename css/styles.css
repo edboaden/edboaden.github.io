@@ -206,7 +206,7 @@ section {
 	.illustration {
 		background: #F7E3DC;
 		overflow: hidden;
-		padding: 1rem;
+		padding: 0 1.5rem;
 	}
 }
 
@@ -222,8 +222,8 @@ section {
 	.illustration .col {
 		display: block;
 		float: left;
-		padding: 0 1%;
-		width: 23%;
+		padding: 0 1.5rem;
+		width: calc(25% - 3rem);
 	}
 }
 
