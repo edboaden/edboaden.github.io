@@ -1,5 +1,45 @@
 /* Javascript */
 
+var toggled = false;
+
+const toggleButton = document.querySelector('.js-toggle-dark-mode');
+	
+toggleButton.addEventListener('click', function(event) {
+	toggleDarkMode(this);
+});
+
+/**
+* toggle body class on button click
+* params - button
+*/
+toggleDarkMode = function(button) {
+
+	const bodyClassInitial = button.dataset.bodyClassInitial;
+	const bodyClassToggle = button.dataset.bodyClassToggle;
+	const buttonClassInitial = button.dataset.buttonClassInitial;
+	const buttonClassToggle = button.dataset.buttonClassToggle;
+	const buttonTextInitial = button.dataset.buttonTextInitial;
+	const buttonTextToggle = button.dataset.buttonTextToggle;
+
+	if (toggled) {
+		// untoggle - revert to initial state
+		document.body.classList.remove(bodyClassToggle);
+		document.body.classList.remove(bodyClassInitial);
+		button.classList.remove(buttonClassToggle);
+		button.classList.add(buttonClassInitial);
+		button.textContent = buttonTextInitial;
+		toggled = false;
+	} else {
+		// toggle
+		document.body.classList.remove(bodyClassInitial);
+		document.body.classList.add(bodyClassToggle);
+		button.classList.remove(buttonClassInitial);
+		button.classList.add(buttonClassToggle);
+		button.textContent = buttonTextToggle;
+		toggled = true;
+	}
+}
+
 // On Window Load
 // add loaded class
 // window.onload = function() {
