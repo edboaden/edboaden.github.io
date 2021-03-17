@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,700&display=swap');
 
 :root {
 	--font-size: 2rem;
@@ -61,23 +62,26 @@ ul {
 	padding: 0;
 }
 
-.film-list {
-
-}
-
 .film-list li {
 	margin-bottom: 0.5em;
-}
-
-.film-list img {
-	/*border-radius: 2px;*/
-	height: 3em;
-	margin-right: 0.5em;
 }
 
 .film-list span::before {
 	content: ".";
 	margin: 0 0.5em;
+}
+
+.film-list img {
+	/*border-radius: 2px;*/
+	display: none;
+	height: 3em;
+	margin-right: 0.5em;
+}
+
+.film-list blockquote {
+	font-family: "Merriweather", serif;
+	font-style: italic;
+	margin: 0.5em 0;
 }
 
 .director-list {
@@ -87,4 +91,8 @@ ul {
 
 .director-list li {
 	display: inline;
+}
+
+.director-list li:not(:last-child)::after {
+	content: ", ";
 }
