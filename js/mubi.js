@@ -15,8 +15,6 @@ request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
 
-console.log(requestURL);
-
 request.onload = function() {
 	const reviews = request.response;
 	showFilms(reviews);
@@ -68,7 +66,15 @@ function showFilms(obj) {
 			// only output reviews with words - no number-only reviews
 			review.textContent = ratings[i].body;
 		}
-		rating.textContent = ratings[i].overall + ' / 5';
+		ratingNumber = parseInt(ratings[i].overall);
+		for (let k = 0; k < ratingNumber; k++) {
+			rating.textContent += '★';
+		}
+		for (let l = 0; l < 5 - ratingNumber; l++) {
+			rating.textContent += '☆';
+		}
+
+		film.classList.add('rating-' + ratingNumber)
 
 		film.appendChild(filmImageWrapper);
 		film.appendChild(filmTitle);
