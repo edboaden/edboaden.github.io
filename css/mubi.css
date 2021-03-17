@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+:root {
+	--font-size: 2rem;
+	--background-color: #fff;
+	--text-color: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+	--background-color: #222;
+	--text-color: #fff;
+}
+
+html {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font: 300 16px / 1.2 "IBM Plex Mono", sans-serif;
+	margin: 0;
+	padding: 0;
+	min-width: 300px;
+}
+
+body {
+	font-size: var(--font-size);
+	padding: 1em;
+}
+
+h1 {
+	/*font-size: 3.75rem;*/
+	font-size: var(--font-size);
+	/*font-weight: 700;*/
+	/*line-height: 1.2;*/
+	margin: 2rem 0;
+}
+
+h2 {
+	/*font-size: 2.25rem;*/
+	font-size: var(--font-size);
+	margin: 2rem 0;
+}
+
+h3 {
+	/*font-size: 1rem;*/
+	/*font-weight: 700;*/
+	margin: 1rem 0;
+}
+
+h4 {
+	/*font-size: 1rem;*/
+	/*font-weight: 700;*/
+	margin: 1rem 0;
+}
+
+a {
+	color: var(--text-color);
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.film-list {
+
+}
+
+.film-list li {
+	margin-bottom: 0.5em;
+}
+
+.film-list img {
+	/*border-radius: 2px;*/
+	height: 3em;
+	margin-right: 0.5em;
+}
+
+.film-list span::before {
+	content: ".";
+	margin: 0 0.5em;
+}
+
+.director-list {
+	list-style: none;
+	display: inline;
+}
+
+.director-list li {
+	display: inline;
+}
