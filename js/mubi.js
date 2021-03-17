@@ -20,6 +20,8 @@ request.onload = function() {
 	showFilms(reviews);
 }
 
+console.log(requestURL);
+
 function showFilms(obj) {
 	const ratings = obj;
 
@@ -27,15 +29,34 @@ function showFilms(obj) {
 
 		// list item
 		const film = document.createElement('li');
+		film.classList.add('film')
 
 		// film
-		const filmTitle = document.createElement('a');
+		const filmTitle = document.createElement('h2');
+		const filmTitleLink = document.createElement('a');
+		const filmInfo = document.createElement('div');
 		const filmYear = document.createElement('span');
 		const filmDirector = document.createElement('ul');
-		const filmDirectorIntro = document.createElement('span');
+		const filmDirectorBy = document.createElement('span');
 		const filmImageWrapper = document.createElement('div');
 		const filmImage = document.createElement('img');
 
+		// film image
+		filmImageWrapper.classList.add('film-image')
+		filmImageWrapper.appendChild(filmImage);
+		filmImage.src = ratings[i].film.stills.large;
+
+		// film title
+		filmTitle.classList.add('film-title');
+		filmTitleLink.textContent = ratings[i].film.title;
+		filmTitleLink.href = ratings[i].film.canonical_url;
+		filmTitle.appendChild(filmTitleLink);
+
+		// film year
+		filmYear.classList.add('film-year');
+		filmYear.textContent = ratings[i].film.year;
+
+		// film directors
 		const directors = ratings[i].film.directors;
 		for (let j = 0; j < directors.length; j++) {
 			const director = document.createElement('li');
@@ -45,46 +66,69 @@ function showFilms(obj) {
 			director.appendChild(directorLink);
 			filmDirector.appendChild(director);
 		}
-
-		filmTitle.textContent = ratings[i].film.title;
-		filmYear.textContent = ratings[i].film.year;
-		filmTitle.href = ratings[i].film.canonical_url;
-
-		filmDirectorIntro.textContent = 'Directed by ';
+		filmDirectorBy.classList.add('director-by');
+		filmDirectorBy.textContent = 'Directed by ';
 		filmDirector.classList.add('director-list');
 
-		filmImageWrapper.classList.add('film-image')
-		filmImageWrapper.appendChild(filmImage);
-		filmImage.src = ratings[i].film.stills.medium;
+		filmTitle.appendChild(filmTitleLink);
+
+		filmInfo.classList.add('film-info');
+		filmInfo.appendChild(filmYear);
+		filmInfo.appendChild(filmDirectorBy);
+		filmInfo.appendChild(filmDirector);
+
+		// rating / review
+		const rating = document.createElement('div');
+		const author = document.createElement('a');
+		const review = 	document.createElement('blockquote');
 
 		// rating
-		const review = 	document.createElement('blockquote');
-		const rating = document.createElement('div');
-
-		var regExp = /[a-zA-Z]/g;
-		if (ratings[i].body && ratings[i].body.match(regExp)) {
-			// only output reviews with words - no number-only reviews
-			review.textContent = ratings[i].body;
-		}
 		ratingNumber = parseInt(ratings[i].overall);
+		
+		// add stars
 		for (let k = 0; k < ratingNumber; k++) {
-			rating.textContent += '★';
+			const ratingStar = document.createElement('span');
+			ratingStar.classList.add('material-icons');
+			ratingStar.textContent += 'star';
+			rating.appendChild(ratingStar);
 		}
+		// add empty stars
 		for (let l = 0; l < 5 - ratingNumber; l++) {
-			rating.textContent += '☆';
+			const ratingStar = document.createElement('span');
+			ratingStar.classList.add('material-icons');
+			ratingStar.textContent += 'star_border';
+			rating.appendChild(ratingStar);
 		}
 
-		film.classList.add('rating-' + ratingNumber)
+		film.classList.add('rating-' + ratingNumber);
+		rating.classList.add('rating');
 
+		// review
+		review.textContent = ratings[i].body;
+		review.classList.add('review');
+		
+		// only output reviews with words - no number-only reviews
+		var regExp = /[a-zA-Z]/g;
+		const hasReview = ratings[i].body && ratings[i].body.match(regExp)
+
+		// author
+		author.classList.add('author');
+		author.textContent = ratings[i].user.name;
+		author.href = ratings[i].user.canonical_url;
+
+		// build page element
+
+		// build film
 		film.appendChild(filmImageWrapper);
 		film.appendChild(filmTitle);
-		film.appendChild(filmDirectorIntro);
-		film.appendChild(filmDirector);
-		film.appendChild(filmYear);
-
+		film.appendChild(filmInfo);
+		// build review
 		film.appendChild(rating);
-		film.appendChild(review);
-
+		film.appendChild(author);
+		if (hasReview) {
+			film.appendChild(review);
+		}
+		// add to page
 		filmList.appendChild(film);
 	}
 }

@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,700&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,700&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 :root {
-	--font-size: 2rem;
-	--background-color: #fff;
+	--font-size: 3rem;
+	--background-color: #f3aecd;
+	/*--background-color: #001489;*/
 	--text-color: #222;
+	/*--text-color: #fff;*/
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,7 +19,8 @@
 html {
 	background-color: var(--background-color);
 	color: var(--text-color);
-	font: 300 16px / 1.2 "IBM Plex Mono", sans-serif;
+	/*font: 300 16px / 1.2 "IBM Plex Mono", sans-serif;*/
+	font: 300 16px / 1.2 "Poppins", sans-serif;
 	margin: 0;
 	padding: 0;
 	min-width: 300px;
@@ -23,33 +28,18 @@ html {
 
 body {
 	font-size: var(--font-size);
+	font-weight: 500;
 	padding: 1em;
 }
 
 h1 {
-	/*font-size: 3.75rem;*/
 	font-size: var(--font-size);
-	/*font-weight: 700;*/
-	/*line-height: 1.2;*/
 	margin: 2rem 0;
 }
 
 h2 {
-	/*font-size: 2.25rem;*/
 	font-size: var(--font-size);
-	margin: 2rem 0;
-}
-
-h3 {
-	/*font-size: 1rem;*/
-	/*font-weight: 700;*/
-	margin: 1rem 0;
-}
-
-h4 {
-	/*font-size: 1rem;*/
-	/*font-weight: 700;*/
-	margin: 1rem 0;
+	margin: 0;
 }
 
 a {
@@ -62,28 +52,35 @@ ul {
 	padding: 0;
 }
 
-.film-list li {
+.film {
 	margin-bottom: 0.5em;
 }
 
-.film-list span::before {
-	content: ".";
-	margin: 0 0.5em;
+.film-title {
+	font-weight: 700;
 }
 
 .film-image {
 	display: none;
 	/*margin-right: 0.5em;*/
+	opacity: 0;
+	position: fixed;
+	left: calc(50% - (6em / 2 * (16 / 9)));
+	top: calc(50% - (6em / 2));
+	z-index: -1;
+}
+
+.film:hover .film-image {
+	/*opacity: 1;*/
 }
 
 .film-image img {
-	height: 3em;
+	height: 6em;
 }
 
-.film-list blockquote {
-	font-family: "Merriweather", serif;
-	font-style: italic;
-	margin: 0.5em 0 1em;
+.director-by::before {
+	content: "•";
+	margin: 0 0.5em;
 }
 
 .director-list {
@@ -98,3 +95,58 @@ ul {
 .director-list li:not(:last-child)::after {
 	content: ", ";
 }
+
+.material-icons {
+	font-size: 2rem !important;
+}
+
+.author {
+	display: none;
+}
+
+.review {
+	/*font-family: "Merriweather", serif;*/
+	font-weight: 300;
+	/*font-style: italic;*/
+	margin: 0.5em 0 1em;
+	position: relative;
+}
+
+.review::before {
+	content: "“";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -1em;
+	text-align: right;
+	width: 1em;
+}
+
+.review::after {
+	content: "”";
+}
+
+/*.rating-1 {
+	font-weight: 100;
+	font-size: 1rem;
+}
+
+.rating-2 {
+	font-weight: 300;
+	font-size: 1.5rem;
+}
+
+.rating-3 {
+	font-weight: 500;
+	font-size: 2.25rem;
+}
+
+.rating-4 {
+	font-weight: 700;
+	font-size: 3.375rem;
+}
+
+.rating-5 {
+	font-weight: 900;
+	font-size: 5.06rem;
+}*/
