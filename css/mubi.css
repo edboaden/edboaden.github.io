@@ -71,17 +71,19 @@ ul {
 	margin: 0 0.5em;
 }
 
-.film-list img {
-	/*border-radius: 2px;*/
+.film-image {
 	display: none;
+	/*margin-right: 0.5em;*/
+}
+
+.film-image img {
 	height: 3em;
-	margin-right: 0.5em;
 }
 
 .film-list blockquote {
 	font-family: "Merriweather", serif;
 	font-style: italic;
-	margin: 0.5em 0;
+	margin: 0.5em 0 1em;
 }
 
 .director-list {

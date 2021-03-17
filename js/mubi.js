@@ -35,6 +35,7 @@ function showFilms(obj) {
 		const filmYear = document.createElement('span');
 		const filmDirector = document.createElement('ul');
 		const filmDirectorIntro = document.createElement('span');
+		const filmImageWrapper = document.createElement('div');
 		const filmImage = document.createElement('img');
 
 		const directors = ratings[i].film.directors;
@@ -50,19 +51,26 @@ function showFilms(obj) {
 		filmTitle.textContent = ratings[i].film.title;
 		filmYear.textContent = ratings[i].film.year;
 		filmTitle.href = ratings[i].film.canonical_url;
+
+		filmDirectorIntro.textContent = 'Directed by ';
+		filmDirector.classList.add('director-list');
+
+		filmImageWrapper.classList.add('film-image')
+		filmImageWrapper.appendChild(filmImage);
 		filmImage.src = ratings[i].film.stills.medium;
 
 		// rating
 		const review = 	document.createElement('blockquote');
-		const rating = document.createElement('span');
+		const rating = document.createElement('div');
 
-		review.textContent = ratings[i].body;
+		var regExp = /[a-zA-Z]/g;
+		if (ratings[i].body && ratings[i].body.match(regExp)) {
+			// only output reviews with words - no number-only reviews
+			review.textContent = ratings[i].body;
+		}
 		rating.textContent = ratings[i].overall + ' / 5';
 
-		filmDirectorIntro.textContent = 'Directed by '
-		filmDirector.classList.add('director-list')
-
-		film.appendChild(filmImage);
+		film.appendChild(filmImageWrapper);
 		film.appendChild(filmTitle);
 		film.appendChild(filmDirectorIntro);
 		film.appendChild(filmDirector);
