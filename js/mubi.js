@@ -49,11 +49,12 @@ function populateFilmList(ratings) {
 		const filmYear = document.createElement('span');
 		const filmDirector = document.createElement('ul');
 		const filmDirectorBy = document.createElement('span');
-		const filmImageWrapper = document.createElement('div');
+		const filmImageWrapper = document.createElement('a');
 		const filmImage = document.createElement('img');
 
 		// film image
-		filmImageWrapper.classList.add('film-image')
+		filmImageWrapper.classList.add('film-image');
+		filmImageWrapper.href = ratings[i].film.canonical_url;
 		filmImageWrapper.appendChild(filmImage);
 		filmImage.src = ratings[i].film.stills.large;
 
