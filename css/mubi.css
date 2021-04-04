@@ -20,17 +20,24 @@
 	--text-color: #fff;
 }
 
+body.dark {
+	--background-color: #222;
+	--text-color: #fff;
+}
+
 html {
-	background-color: var(--background-color);
-	color: var(--text-color);
-	font: 400 var(--font-size) /  var(--line-height) "Poppins", sans-serif;
+	font: 400 var(--font-size) / var(--line-height) "Poppins", sans-serif;
 	margin: 0;
 	padding: 0;
-	min-width: 300px;
 }
 
 body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	margin: 0;
 	padding: 1rem;
+	padding-bottom: 10rem;
+	min-width: 300px;
 }
 
 h1 {
@@ -68,6 +75,14 @@ ul {
 .film {
 	margin-right: 4rem;
 	margin-bottom: 2rem;
+	opacity: 0;
+	transform: translateY(1rem);
+	transition: all 0.2s ease-out;
+}
+
+.film.loaded {
+	opacity: 1;
+	transform: translateY(0);
 }
 
 .film-image {
@@ -79,6 +94,7 @@ ul {
 .film-image img {
 	display: block;
 	height: 6rem;
+	width: 10.667rem;
 }
 
 .film:not(.rating-5) img {
@@ -89,6 +105,7 @@ ul {
 	display: inline-block;
 	font-weight: 600;
 	vertical-align: top;
+	max-width: 40em;
 }
 
 .film-title {
@@ -99,8 +116,8 @@ ul {
 }
 
 .director-list {
-	list-style: none;
 	display: inline;
+	list-style: none;
 }
 
 .director-list::before {
@@ -127,6 +144,10 @@ ul {
 
 .rating-5 .rating {
 	background-color: var(--rating-background);
+}
+
+body.dark .rating-5 .rating {
+	color: var(--background-color);
 }
 
 .material-icons {

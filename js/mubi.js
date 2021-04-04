@@ -3,6 +3,7 @@ const filmList = document.querySelector('.film-list');
 
 const userId = filmList.dataset.userId
 const limit = filmList.dataset.limit
+let page = 1
 
 let requestURL = 'https://mubi.com/services/api/ratings?per_page=' + limit
 if (userId) {
@@ -11,18 +12,27 @@ if (userId) {
 let request = new XMLHttpRequest();
 
 request.open('GET', requestURL);
-
 request.responseType = 'json';
 request.send();
 
 request.onload = function() {
-	const reviews = request.response;
-	showFilms(reviews);
+	const ratings = request.response;
+	populateFilmList(ratings);
 }
 
-function showFilms(obj) {
-	const ratings = obj;
+window.onscroll = function() {
+  if ((window.innerHeight + window.scrollY + 160) >= document.body.offsetHeight) {
+		page += 2; // 1
+		let updatedRequestURL = requestURL + '&page=' + page
+		request.open('GET', updatedRequestURL);
+		request.responseType = 'json';
+		request.send();
+		const ratings = request.response;
+		populateFilmList(ratings);
+  }
+};
 
+function populateFilmList(ratings) {
 	for (let i = 0; i < ratings.length; i++) {
 
 		// list item
@@ -128,5 +138,9 @@ function showFilms(obj) {
 		}
 		// add to page
 		filmList.appendChild(film);
+
+		setTimeout(function() {
+			film.classList.add('loaded');
+		}, 500 + 50 * i);
 	}
 }
