@@ -20,8 +20,6 @@ request.onload = function() {
 	showFilms(reviews);
 }
 
-console.log(requestURL);
-
 function showFilms(obj) {
 	const ratings = obj;
 
@@ -73,8 +71,9 @@ function showFilms(obj) {
 		filmTitle.appendChild(filmTitleLink);
 
 		filmInfo.classList.add('film-info');
+		filmInfo.appendChild(filmTitle);
 		filmInfo.appendChild(filmYear);
-		filmInfo.appendChild(filmDirectorBy);
+		// filmInfo.appendChild(filmDirectorBy);
 		filmInfo.appendChild(filmDirector);
 
 		// rating / review
@@ -84,7 +83,7 @@ function showFilms(obj) {
 
 		// rating
 		ratingNumber = parseInt(ratings[i].overall);
-		
+
 		// add stars
 		for (let k = 0; k < ratingNumber; k++) {
 			const ratingStar = document.createElement('span');
@@ -106,7 +105,7 @@ function showFilms(obj) {
 		// review
 		review.textContent = ratings[i].body;
 		review.classList.add('review');
-		
+
 		// only output reviews with words - no number-only reviews
 		var regExp = /[a-zA-Z]/g;
 		const hasReview = ratings[i].body && ratings[i].body.match(regExp)
@@ -120,11 +119,10 @@ function showFilms(obj) {
 
 		// build film
 		film.appendChild(filmImageWrapper);
-		film.appendChild(filmTitle);
 		film.appendChild(filmInfo);
 		// build review
-		film.appendChild(rating);
-		film.appendChild(author);
+		filmImageWrapper.appendChild(rating);
+		// film.appendChild(author);
 		if (hasReview) {
 			film.appendChild(review);
 		}
