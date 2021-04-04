@@ -8,10 +8,10 @@
 	--line-height: 1.5;
 	--font-size-1: 2.25rem;
 	--font-size-2: 1.5rem;
-	--line-height-1: 1.333;
+	--line-height-1: 1.2;
+	--line-height-2: 1.3;
 	--background-color: #EEE;
 	--text-color: #222;
-	--rating-background: #FFBD01;
 	--rating-background: #FFA7D6;
 }
 
@@ -35,20 +35,36 @@ body {
 	background-color: var(--background-color);
 	color: var(--text-color);
 	margin: 0;
-	padding: 2rem 1rem 10rem 2rem;
+	padding: 1rem;
+	padding-bottom: 10rem;
 	min-width: 300px;
 }
 
+@media screen and (min-width: 60em) {
+	body {
+		padding-top: 2rem;
+		padding-left: 2rem;
+	}
+}
+
 h1 {
-	font-size: var(--font-size-1);
+	font-size: var(--font-size-2);
 	font-weight: 600;
-	line-height: var(--line-height-1);
+	line-height: var(--line-height-2);
 	margin: 0 0 1rem;
+}
+
+@media screen and (min-width: 60em) {
+	h1{
+		font-size: var(--font-size-1);
+		line-height: var(--line-height-1);
+	}
 }
 
 h2 {
 	font-size: var(--font-size-2);
 	font-weight: 600;
+	line-height: var(--line-height-2);
 	margin: 1rem 0;
 }
 
@@ -102,16 +118,23 @@ ul {
 
 .film-info {
 	display: inline-block;
-	/* font-weight: 600; */
 	vertical-align: top;
 	max-width: 40em;
 }
 
 .film-title {
-	font-size: var(--font-size-1);
-	line-height: var(--line-height-1);
-	margin: 0 0 1.3rem;
+	font-size: var(--font-size-2);
+	line-height: var(--line-height-2);
+	margin: 0 0 0.5rem;
 	max-width: 20em;
+}
+
+@media screen and (min-width: 60em) {
+	.film-title {
+		font-size: var(--font-size-1);
+		line-height: var(--line-height-1);
+		margin-bottom: 1.5rem;
+	}
 }
 
 .director-list {
@@ -142,6 +165,11 @@ ul {
 	bottom: 0;
 	left: 0;
 }
+
+/* body.dark .film:not(.rating-5) .rating {
+	background-color: var(--text-color);
+	color: var(--background-color);
+} */
 
 .rating-5 .rating {
 	background-color: var(--rating-background);
