@@ -35,8 +35,7 @@ body {
 	background-color: var(--background-color);
 	color: var(--text-color);
 	margin: 0;
-	padding: 1rem;
-	padding-bottom: 10rem;
+	padding: 2rem 1rem 10rem 2rem;
 	min-width: 300px;
 }
 
@@ -103,7 +102,7 @@ ul {
 
 .film-info {
 	display: inline-block;
-	font-weight: 600;
+	/* font-weight: 600; */
 	vertical-align: top;
 	max-width: 40em;
 }

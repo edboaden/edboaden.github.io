@@ -1,34 +1,37 @@
 
 const filmList = document.querySelector('.film-list');
+const userId = filmList.dataset.userId;
+const limit = filmList.dataset.limit;
+let page = 1;
+let loadNew = true;
 
-const userId = filmList.dataset.userId
-const limit = filmList.dataset.limit
-let page = 1
+function requestRatings() {
+	let requestURL = 'https://mubi.com/services/api/ratings?per_page=' + limit + '&page=' + page;
+	if (userId) {
+		requestURL += '&user_id=' + userId;
+	}
 
-let requestURL = 'https://mubi.com/services/api/ratings?per_page=' + limit
-if (userId) {
-	requestURL += '&user_id=' + userId
+	let request = new XMLHttpRequest();
+	request.open('GET', requestURL);
+	request.responseType = 'json';
+	request.send();
+	request.onload = function() {
+		const ratings = request.response;
+		populateFilmList(ratings);
+		page += 2; // 1
+	}
 }
-let request = new XMLHttpRequest();
 
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
-
-request.onload = function() {
-	const ratings = request.response;
-	populateFilmList(ratings);
+window.onload = function() {
+	requestRatings();
 }
 
 window.onscroll = function() {
   if ((window.innerHeight + window.scrollY + 160) >= document.body.offsetHeight) {
-		page += 2; // 1
-		let updatedRequestURL = requestURL + '&page=' + page
-		request.open('GET', updatedRequestURL);
-		request.responseType = 'json';
-		request.send();
-		const ratings = request.response;
-		populateFilmList(ratings);
+		if (loadNew) {
+			loadNew = false;
+			requestRatings();
+		}
   }
 };
 
@@ -143,4 +146,5 @@ function populateFilmList(ratings) {
 			film.classList.add('loaded');
 		}, 500 + 50 * i);
 	}
+	loadNew = true;
 }
