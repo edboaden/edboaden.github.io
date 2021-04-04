@@ -16,8 +16,14 @@
 }
 
 @media (prefers-color-scheme: dark) {
-	--background-color: #222;
-	--text-color: #fff;
+	body {
+		--background-color: #222;
+		--text-color: #fff;
+	}
+
+	.rating-5 .rating {
+		color: var(--background-color);
+	}
 }
 
 body.dark {
