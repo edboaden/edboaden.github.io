@@ -41,8 +41,7 @@ body {
 	background-color: var(--background-color);
 	color: var(--text-color);
 	margin: 0;
-	padding: 1rem;
-	padding-bottom: 10rem;
+	padding: 1rem 0 10rem 1rem;
 	min-width: 300px;
 }
 
