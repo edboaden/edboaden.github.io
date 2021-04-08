@@ -56,7 +56,10 @@ function populateFilmList(ratings) {
 		filmImageWrapper.classList.add('film-image');
 		filmImageWrapper.href = ratings[i].film.canonical_url;
 		filmImageWrapper.appendChild(filmImage);
-		filmImage.src = ratings[i].film.stills.large;
+		filmImage.alt = ratings[i].film.title;
+		if (ratings[i].film.stills) {
+			filmImage.src = ratings[i].film.stills.large;
+		}
 
 		// film title
 		filmTitle.classList.add('film-title');
