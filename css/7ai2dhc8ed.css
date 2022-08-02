@@ -245,6 +245,10 @@ section {
 	.large-text {
 		font-size: 1.5rem;
 	}
+
+	section.large-text {
+		margin-bottom: 6rem;
+	}
 }
 
 .project-list li {
